@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "diskr", "diskr\diskr.vcxproj", "{583E2FE4-21E5-46BD-80AB-CF74D8208835}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{583E2FE4-21E5-46BD-80AB-CF74D8208835}.Debug|x64.ActiveCfg = Debug|x64
+		{583E2FE4-21E5-46BD-80AB-CF74D8208835}.Debug|x64.Build.0 = Debug|x64
+		{583E2FE4-21E5-46BD-80AB-CF74D8208835}.Debug|x86.ActiveCfg = Debug|Win32
+		{583E2FE4-21E5-46BD-80AB-CF74D8208835}.Debug|x86.Build.0 = Debug|Win32
+		{583E2FE4-21E5-46BD-80AB-CF74D8208835}.Release|x64.ActiveCfg = Release|x64
+		{583E2FE4-21E5-46BD-80AB-CF74D8208835}.Release|x64.Build.0 = Release|x64
+		{583E2FE4-21E5-46BD-80AB-CF74D8208835}.Release|x86.ActiveCfg = Release|Win32
+		{583E2FE4-21E5-46BD-80AB-CF74D8208835}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1F355494-5E40-455B-87F7-A6C88EB0A2E5}
+	EndGlobalSection
+EndGlobal
