@@ -1244,12 +1244,82 @@ void set_belong() {
 }
 
 void set_difference() {
-	int first_num, second_num;
+	int first_num, second_num, count = 0, flag = 0;
+	vector<double> result;
+	if (matrix.size() == 0) {
+		cout << "\nнет добавленных конечных множеств\n";
+		return;
+	}
 	cout << "введите номер первго множества: ";
 	cin >> first_num;
+	while (first_num > matrix.size()) {
+		cout << "выберите конечное множество" << endl;
+		cin >> first_num;
+	}
 	cout << "введите номер второго множества: ";
 	cin >> second_num;
-
+	if (sets_list[first_num] == "c" and sets_list[second_num] == "c") {
+		for (int i = 0; i < matrix[first_num - 1].size(); i++) {
+			for (int j = 0; j < matrix[second_num - 1].size(); j++) {
+				if (matrix[first_num - 1][i] == matrix[second_num - 1][j]) {
+					count++;
+				}
+			}
+			if (count == 0) {
+				result.push_back(matrix[first_num - 1][i]);
+			}
+			count = 0;
+		}
+	}
+	if (sets_list[first_num] == "c" or sets_list[second_num] == "u") {
+		for (int i = 0; i < matrix[first_num - 1].size(); i++) {
+			for (int j = 0; j < condition_matrix[second_num - matrix.size() - 1].conditions.size(); j++) {
+				if (condition_matrix[second_num - matrix.size() - 1].conditions[j].oper == 0) {
+					if (matrix[first_num - 1][i] <= condition_matrix[second_num - matrix.size() - 1].conditions[j].value)
+						flag++;
+				}
+				if (condition_matrix[second_num - matrix.size() - 1].conditions[j].oper == 1) {
+					if (matrix[first_num - 1][i] < condition_matrix[second_num - matrix.size() - 1].conditions[j].value)
+						flag++;
+				}
+				if (condition_matrix[second_num - matrix.size() - 1].conditions[j].oper == 2) {
+					if (matrix[first_num - 1][i] >= condition_matrix[second_num - matrix.size() - 1].conditions[j].value)
+						flag++;
+				}
+				if (condition_matrix[second_num - matrix.size() - 1].conditions[j].oper == 3) {
+					if (matrix[first_num - 1][i] > condition_matrix[second_num - matrix.size() - 1].conditions[j].value)
+						flag++;
+				}
+				if (condition_matrix[second_num - matrix.size() - 1].conditions[j].oper == 4) {
+					if ((int)matrix[first_num - 1][i] % condition_matrix[second_num - matrix.size() - 1].conditions[j].arg.first !=
+						condition_matrix[second_num - matrix.size() - 1].conditions[j].arg.second)
+						flag++;
+				}
+				if (condition_matrix[second_num - matrix.size() - 1].conditions[j].oper == 5) {
+					if (matrix[first_num - 1][i] <= 0 or matrix[first_num - 1][i] != floor(matrix[first_num - 1][i]))
+						flag++;
+				}
+				if (condition_matrix[second_num - matrix.size() - 1].conditions[j].oper == 6) {
+					if (matrix[first_num - 1][i] != floor(matrix[first_num - 1][i]))
+						flag++;
+				}
+				if (condition_matrix[second_num - matrix.size() - 1].conditions[j].oper == 7) {
+					if (matrix[first_num - 1][i] >= 0)
+						flag++;
+				}
+				if (flag != 0) {
+					result.push_back(matrix[first_num - 1][i]);
+				}
+				flag = 0;
+			}
+		}
+	}
+	cout << endl;
+	for (int i = 0; i < result.size(); i++) {
+		cout << result[i] << " ";
+	}
+	cout << endl;
+	result.clear();
 }
 
 void operations() {
