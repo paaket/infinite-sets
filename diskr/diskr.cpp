@@ -805,7 +805,6 @@ void common_elements() {
 			cout << elem[i] << " ";
 		}
 		cout << endl;
-		
 	}
 	if (condition_matrix.size() != 0 and matrix.size() == 0) {
 		double bottom_value = 1, top_value = -1;
@@ -967,47 +966,6 @@ void serialaze() {
 		cout << "ошибка открытия" << endl;
 	}
 	file.close();
-}
-
-void elements_count() {
-	double top, bottom;
-	int num, count = 0;
-	bool flag = 1, pr_true = 0;
-	cout << "номер множества: ";
-	cin >> num;
-	cout << "введите верхнюю и нижнюю границу диапазона:" << endl;
-	while (flag) {
-		cout << "нижняя: ";
-		cin >> bottom;
-		while (bottom < 1) {
-			cout << "некорреткное значение\n";
-			cout << "нижняя: ";
-			cin >> bottom;
-		}
-		cout << "верхняя: ";
-		cin >> top;
-		while (top < 1) {
-			cout << "некорреткное значение\n";
-			cout << "верхняя: ";
-			cin >> top;
-		}
-		if (top == bottom) {
-			cout << "границы не могут быть равны" << endl;
-		}
-		else {
-			flag = 0;
-		}
-	}
-	if (sets_list[num] == "c") {
-		cout << endl;
-		for (int i = bottom - 1; i <= top - 1; i++) {
-			cout << matrix[num - 1][i] << " ";
-		}
-		cout << endl;
-	}
-	if (sets_list[num] == "u") {
-
-	}
 }
 
 void count_belong() {
@@ -1325,9 +1283,8 @@ void operations() {
 	int var1;
 	bool flag = 0;
 	cout << "\n==== ДЕЙСТВИЯ НАД МНОЖЕСТВАМИ ====\n\n";
-	cout << "1 - поиск максимального элемента\n2 - поиск минимального элемента\n3 - пересечение множеств\n4 - экспорт множеств в файл\n5 - подсчёт элементов в диапазоне\n6 - принадлежит ли число множеству\n7 - является ли множество подмножеством\n8 - разность множеств\n0 - выход";
-	while (!flag)
-	{
+	cout << "1 - поиск максимального элемента\n2 - поиск минимального элемента\n3 - пересечение множеств\n4 - экспорт множеств в файл\n5 - принадлежит ли число множеству\n6 - является ли множество подмножеством\n7 - разность множеств\n0 - выход";
+	while (!flag) {
 		cout << "\nвариант: ";
 		cin >> var1;
 		switch (var1) {
@@ -1344,15 +1301,12 @@ void operations() {
 			serialaze();
 			break;
 		case 5:
-			elements_count();
-			break;
-		case 6:
 			count_belong();
 			break;
-		case 7:
+		case 6:
 			set_belong();
 			break;
-		case 8:
+		case 7:
 			set_difference();
 			break;
 		case 0:
