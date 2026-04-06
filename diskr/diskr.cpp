@@ -1264,18 +1264,23 @@ void set_difference() {
 					if (matrix[first_num - 1][i] >= 0)
 						flag++;
 				}
-				if (flag != 0) {
-					result.push_back(matrix[first_num - 1][i]);
-				}
-				flag = 0;
 			}
+			if (flag != 0) {
+				result.push_back(matrix[first_num - 1][i]);
+			}
+			flag = 0;
 		}
 	}
-	cout << endl;
-	for (int i = 0; i < result.size(); i++) {
-		cout << result[i] << " ";
+	if (result.size() == 0) {
+		cout << "\nэлементы не найдены\n";
 	}
-	cout << endl;
+	else {
+		cout << endl;
+		for (int i = 0; i < result.size(); i++) {
+			cout << result[i] << " ";
+		}
+		cout << endl;
+	}
 	result.clear();
 }
 
