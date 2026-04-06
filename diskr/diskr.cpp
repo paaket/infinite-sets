@@ -969,47 +969,46 @@ void serialaze() {
 	file.close();
 }
 
-//void elements_count() {
-//	double top, bottom;
-//	int num, count = 0;
-//	bool flag = 1, pr_true = 0;
-//	cout << "номер множества: ";
-//	cin >> num;
-//	num--;
-//	cout << "введите верхнюю и нижнюю границу диапазона:" << endl;
-//	while (flag) {
-//		cout << "нижняя: ";
-//		cin >> bottom;
-//		while (bottom - 1 >= matrix[num].size() or bottom - 1 < 0) {
-//			cout << "некорреткное значение\n";
-//			cout << "нижняя: ";
-//			cin >> bottom;
-//		}
-//		bottom--;
-//		cout << "верхняя: ";
-//		cin >> top;
-//		while (top - 1 >= matrix[num].size() or top - 1 < 0) {
-//			cout << "некорреткное значение\n";
-//			cout << "верхняя: ";
-//			cin >> top;
-//		}
-//		top--;
-//		if (top == bottom) {
-//			cout << "границы не могут быть равны" << endl;
-//		}
-//		else {
-//			flag = 0;
-//		}
-//	}
-//	if (condition_matrix.size() == 0) {
-//		for (int i = bottom; i <= top; i++) {
-//			count++;
-//		}
-//		cout << "\nколичество элементов: " << count << endl;
-//	}
-//	if (matrix.size() == 0) {
-//	}
-//}
+void elements_count() {
+	double top, bottom;
+	int num, count = 0;
+	bool flag = 1, pr_true = 0;
+	cout << "номер множества: ";
+	cin >> num;
+	cout << "введите верхнюю и нижнюю границу диапазона:" << endl;
+	while (flag) {
+		cout << "нижняя: ";
+		cin >> bottom;
+		while (bottom < 1) {
+			cout << "некорреткное значение\n";
+			cout << "нижняя: ";
+			cin >> bottom;
+		}
+		cout << "верхняя: ";
+		cin >> top;
+		while (top < 1) {
+			cout << "некорреткное значение\n";
+			cout << "верхняя: ";
+			cin >> top;
+		}
+		if (top == bottom) {
+			cout << "границы не могут быть равны" << endl;
+		}
+		else {
+			flag = 0;
+		}
+	}
+	if (sets_list[num] == "c") {
+		cout << endl;
+		for (int i = bottom - 1; i <= top - 1; i++) {
+			cout << matrix[num - 1][i] << " ";
+		}
+		cout << endl;
+	}
+	if (sets_list[num] == "u") {
+
+	}
+}
 
 void count_belong() {
 	int set_num = 0, is_belong = 0, count = 0;
@@ -1345,7 +1344,7 @@ void operations() {
 			serialaze();
 			break;
 		case 5:
-			/*elements_count();*/
+			elements_count();
 			break;
 		case 6:
 			count_belong();
